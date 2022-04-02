@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1648910862249,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+      "lastModificationDate": 1648915507408,
       "contentHash": "49295810dc45f300e5f84b4b50d88a59",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
@@ -44,8 +44,8 @@
         "ERC721"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1648910862190,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
+      "lastModificationDate": 1648915507414,
       "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
       "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
       "solcConfig": {
@@ -79,8 +79,8 @@
         "Counters"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1648910862463,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1648915507383,
       "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -116,10 +116,10 @@
         "Ownable"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
-      "lastModificationDate": 1648910862256,
-      "contentHash": "580a443491d9d70eb064b0130fc3cd01",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1648915507407,
+      "contentHash": "bab063ddd80e9cc9e313361fef7ef07f",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
         "version": "0.8.1",
         "settings": {
@@ -144,17 +144,19 @@
         }
       },
       "imports": [
-        "../ERC721.sol"
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "ERC721URIStorage"
+        "ERC20"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
-      "lastModificationDate": 1648910862409,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+      "lastModificationDate": 1648915507408,
       "contentHash": "27d219ec6f69478d065fdbfa7931da68",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
@@ -190,8 +192,8 @@
         "IERC721"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
-      "lastModificationDate": 1648910862416,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+      "lastModificationDate": 1648915507409,
       "contentHash": "592df588492d45fdcf46b3cb608c0fbf",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
@@ -225,8 +227,8 @@
         "IERC721Receiver"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-      "lastModificationDate": 1648910862415,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+      "lastModificationDate": 1648915507410,
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
@@ -262,8 +264,8 @@
         "IERC721Metadata"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/utils/Address.sol": {
-      "lastModificationDate": 1648910862173,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1648915507413,
       "contentHash": "ad714a6368ee7d43cded6bbe8af0b155",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
       "solcConfig": {
@@ -297,8 +299,8 @@
         "Address"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1648910862190,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1648915507414,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -332,8 +334,8 @@
         "Context"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1648910862491,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1648915507415,
       "contentHash": "9c54c6c065d9e590fdcdd72c451425b9",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -367,8 +369,8 @@
         "Strings"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1648910862221,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+      "lastModificationDate": 1648915507417,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -404,8 +406,8 @@
         "ERC165"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1648910862389,
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1648915507418,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -439,9 +441,81 @@
         "IERC165"
       ]
     },
-    "/Users/bbeniers6/Desktop/LionHackProj/Degen_Social/contracts/DegenSocial.sol": {
-      "lastModificationDate": 1648911354384,
-      "contentHash": "6c07959d895e8b9c19dbcbc6469c07e4",
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1648915507407,
+      "contentHash": "a44d1a099633876550ad2476b21bafbe",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.1",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1648915507407,
+      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.1",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/Users/conorgreene/Documents/GitHub/Degen_Social/contracts/DegenSocial.sol": {
+      "lastModificationDate": 1648918686852,
+      "contentHash": "46c0b58c88f799514ae3409cb1fc673a",
       "sourceName": "contracts/DegenSocial.sol",
       "solcConfig": {
         "version": "0.8.1",
@@ -467,16 +541,18 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
         "@openzeppelin/contracts/utils/Counters.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "DegenSocial"
+        "DegenSocial",
+        "ERC20FixedSupply",
+        "ERC20WithMinerReward",
+        "MYToken"
       ]
     }
   }

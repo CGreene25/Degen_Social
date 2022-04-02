@@ -2,16 +2,44 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
+
+
+
 contract MYToken is ERC20 {
-    constructor(uint256 initialSupply) ERC20("Gold", "GLD") {
+    constructor(uint256 initialSupply) ERC20("MyToken", "MYT") {
         _mint(msg.sender, initialSupply);
     }
 }
+
+contract ERC20FixedSupply is ERC20 {
+    constructor() ERC20("Fixed", "FIX") {
+        _mint(msg.sender, 10000);
+    }
+}
+
+contract ERC20WithMinerReward is ERC20 {
+    constructor() ERC20("Reward", "RWD") {}
+
+    function mintMinerReward() public {
+        _mint(block.coinbase, 1000);
+    }
+}
+
+/*contract MinerRewardMinter {
+    ERC20PresetMinterPauser _token;
+
+    constructor(ERC20PresetMinterPauser token) {
+        _token = token;
+    }
+
+    function mintMinerReward() public {
+        _token.mint(block.coinbase, 1000);
+    }
+}*/
 
 contract DegenSocial {
     string public name;
