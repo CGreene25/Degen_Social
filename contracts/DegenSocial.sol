@@ -32,11 +32,13 @@ contract DegenSocial is ERC20 {
         _mint(block.coinbase, 10);
     }
 
-
-    function returnMappingValue(address _owner) public view returns (Post memory) {
-        return posts[postCount];
+    function getPosts() public view returns (Post[] memory){
+        Post[] memory ret = new Post[](postCount);
+        for (uint i = 0; i < postCount; i++) {
+            ret[i] = posts[i];
+        }
+        return ret;
     }
-
 
     function createPost(string memory _name, string memory _content) public {
         // Require a valid name
