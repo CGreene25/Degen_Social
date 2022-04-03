@@ -24,7 +24,7 @@ contract DegenSocial is ERC20 {
     event PostCreated(string name, string content);
     event PostLiked(address owner, uint256 likeCount);
 
-    constructor() ERC20("DegenToken", "DGN") {
+    constructor() ERC20("DegenCoin", "DGN") {
         _mint(msg.sender, 10000000);
     }
 
@@ -32,10 +32,34 @@ contract DegenSocial is ERC20 {
         _mint(block.coinbase, 10);
     }
 
-    function getPosts() public view returns (Post[] memory){
-        Post[] memory ret = new Post[](postCount);
+    function getPostContent() public view returns (string[] memory){
+        string[] memory ret = new string[](postCount);
         for (uint i = 0; i < postCount; i++) {
-            ret[i] = posts[i];
+            ret[i] = posts[i].content;
+        }
+        return ret;
+    }
+
+    function getPosterName() public view returns (string[] memory){
+        string[] memory ret = new string[](postCount);
+        for (uint i = 0; i < postCount; i++) {
+            ret[i] = posts[i].name;
+        }
+        return ret;
+    }
+
+    function getPosterAddress() public view returns (address[] memory){
+        address[] memory ret = new address[](postCount);
+        for (uint i = 0; i < postCount; i++) {
+            ret[i] = posts[i].owner;
+        }
+        return ret;
+    }
+
+    function getLikeCount() public view returns (uint[] memory){
+        uint[] memory ret = new uint[](postCount);
+        for (uint i = 0; i < postCount; i++) {
+            ret[i] = posts[i].likeCount;
         }
         return ret;
     }
