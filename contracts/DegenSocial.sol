@@ -68,8 +68,8 @@ contract DegenSocial {
     function likePost(uint256 postCount, address _owner) public {
         bool newLike = true;
         // Require unused ID
-        for(uint i=0; i<likes.length;i++){
-            if(_owner != likes[i]){
+        for(uint i=0; i<posts[postCount].likes.length;i++){
+            if(_owner != posts[postCount].likes[i]){
                 newLike = false;
             }
         }

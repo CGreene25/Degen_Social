@@ -514,8 +514,8 @@
       ]
     },
     "/Users/conorgreene/Documents/GitHub/Degen_Social/contracts/DegenSocial.sol": {
-      "lastModificationDate": 1648928825093,
-      "contentHash": "fc91092ba26543c4845e75d7a75e6662",
+      "lastModificationDate": 1648997061375,
+      "contentHash": "2fe6134ed6cac3458b2f4df592b7abc8",
       "sourceName": "contracts/DegenSocial.sol",
       "solcConfig": {
         "version": "0.8.1",
