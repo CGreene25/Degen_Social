@@ -3,6 +3,11 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import posts from '../data/posts.json'
 import { useWeb3 } from "@3rdweb/hooks" 
+import { contractAddress } from '../config.js'
+import { ethers } from 'ethers'
+import axios from 'axios'
+
+import DGN from '../utils/DegenSocial.json'
 
 export default function Home() {
   
@@ -14,6 +19,56 @@ export default function Home() {
               post: post.content }
   }))
 
+/*
+  	// Checks if wallet is connected
+	const checkIfWalletIsConnected = async () => {
+		const { ethereum } = window
+		if (ethereum) {
+			console.log('Got the ethereum obejct: ', ethereum)
+		} else {
+			console.log('No Wallet found. Connect Wallet')
+		}
+
+		const accounts = await ethereum.request({ method: 'eth_accounts' })
+
+		if (accounts.length !== 0) {
+			console.log('Found authorized Account: ', accounts[0])
+			setCurrentAccount(accounts[0])
+		} else {
+			console.log('No authorized account found')
+		}
+	}
+
+  	// Checks if wallet is connected to the correct network
+	const checkCorrectNetwork = async () => {
+		const { ethereum } = window
+		let chainId = await ethereum.request({ method: 'eth_chainId' })
+		console.log('Connected to chain:' + chainId)
+
+		const mumbaiChainId = '0x13881'
+
+		if (chainId !== mumbaiChainId) {
+			setCorrectNetwork(false)
+		} else {
+			setCorrectNetwork(true)
+		}
+	}
+*/
+
+	// Creates transaction to mint NFT on clicking Mint Character button
+	const sendPost = async () => {
+		try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(contractAddress, DGN.abi, signer)
+      contract.createPost("Bob", "Hello world")
+      console.log(signer)
+      console.log("called it")
+		} 
+		 catch (error) {
+			console.log('Error Posting', error)
+		}
+	}
 
   
   return (
@@ -45,40 +100,13 @@ export default function Home() {
         ))}
         </div>
 
-        <form action="http://www.acme.com/register" method="POST">
+        <form>
         <label for="post">Post your alpha here:</label>
-        <input id="post" type="text" autocomplete="name" required />
-        <button type="submit">Post</button>
+        <input id="post" type="text" />
+        
         </form>
+        <button type="submit" onClick={sendPost}>Submit Post </button>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
       </main>
 
       <footer className={styles.footer}>
