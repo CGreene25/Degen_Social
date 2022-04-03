@@ -7,8 +7,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 
-
-
 contract MYToken is ERC20 {
     constructor(uint256 initialSupply) ERC20("MyToken", "MYT") {
         _mint(msg.sender, initialSupply);
@@ -29,37 +27,28 @@ contract ERC20WithMinerReward is ERC20 {
     }
 }
 
-/*contract MinerRewardMinter {
-    ERC20PresetMinterPauser _token;
-
-    constructor(ERC20PresetMinterPauser token) {
-        _token = token;
-    }
-
-    function mintMinerReward() public {
-        _token.mint(block.coinbase, 1000);
-    }
-}*/
-
 contract DegenSocial {
     string public name;
     uint public postCount = 0;
+    uint public likeCount = 0;
     mapping(uint => Post) public posts;
+    //address[] likes;
+    //address _owner;
+
 
 
     struct Post {
-        uint256 postCount;
         string name;
         address owner;
-        //string content;
+        string content;
+        uint256 postCount;
+        uint256 likeCount;
+        address[] likes;
     }
 
-    event PostCreated(
-        uint256 postCount,
-        string name,
-        address owner//,
-    //string content
-    );
+    event PostCreated(string name, string content);
+    event PostLiked(address owner, uint256 likeCount);
+
     constructor() public {
         name = "Social APP";
     }
@@ -71,9 +60,27 @@ contract DegenSocial {
         require(bytes(_content).length > 0);
         // Increment product count
         postCount ++;
-        // Create the product
-        posts[postCount] = Post(postCount, _name, msg.sender);
+        uint256 likeCount = 0;
+        posts[postCount] = (Post(_name, msg.sender, _content, postCount, likeCount, new address[] (0)));
         // Trigger an event
-        emit PostCreated(postCount, _name, msg.sender);
+        emit PostCreated(_name, _content);
     }
+    function likePost(uint256 postCount, address _owner) public {
+        bool newLike = true;
+        // Require unused ID
+        for(uint i=0; i<likes.length;i++){
+            if(_owner != likes[i]){
+                newLike = false;
+            }
+        }
+        if(newLike == true){
+            //Increase like count
+            posts[postCount].likeCount ++;
+            //add address to array of likers
+            posts[postCount].likes.push(_owner);
+        }
+        // Trigger an event
+        emit PostLiked(_owner, likeCount);
+    }
+
 }
