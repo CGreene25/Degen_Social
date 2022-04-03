@@ -13,11 +13,7 @@ export default function Home() {
   
   const { connectWallet, address, error } = useWeb3();
   
-  const post_list = posts.map(post => ({
-    // return an object with params.color set to the color's name
-    params: { post: post.name,
-              post: post.content }
-  }))
+
 
 /*
   	// Checks if wallet is connected
@@ -75,15 +71,27 @@ export default function Home() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(contractAddress, DGN.abi, signer)
-      const posts = contract.getPosts();
+      const content = await contract.getPostContent();
+      const name = await contract.getPosterName();
+      const address = await contract.getPosterAddress();
+      const likeCount = await contract.getLikeCount();
       console.log("Pulled Posts")
-      console.log(posts)
+      console.log(content[1])
+      console.log(name[1])
+      console.log(address[1])
+      console.log(likeCount[1])
       console.log("")
 		} 
 		 catch (error) {
 			console.log('Error Posting', error)
 		}
 	}
+
+  const post_list = posts.map(post => ({
+
+    params: { post: post.name,
+              post: post.content }
+  }))
 
   
   return (
