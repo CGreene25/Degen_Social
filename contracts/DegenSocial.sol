@@ -7,35 +7,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 
-contract MYToken is ERC20 {
-    constructor(uint256 initialSupply) ERC20("MyToken", "MYT") {
-        _mint(msg.sender, initialSupply);
-    }
-}
-
-contract ERC20FixedSupply is ERC20 {
-    constructor() ERC20("Fixed", "FIX") {
-        _mint(msg.sender, 10000);
-    }
-}
-
-contract ERC20WithMinerReward is ERC20 {
-    constructor() ERC20("Reward", "RWD") {}
-
-    function mintMinerReward() public {
-        _mint(block.coinbase, 1000);
-    }
-}
-
-contract DegenSocial {
-    string public name;
+contract DegenSocial is ERC20 {
     uint public postCount = 0;
     uint public likeCount = 0;
     mapping(uint => Post) public posts;
-    //address[] likes;
-    //address _owner;
-
-
 
     struct Post {
         string name;
@@ -49,9 +24,19 @@ contract DegenSocial {
     event PostCreated(string name, string content);
     event PostLiked(address owner, uint256 likeCount);
 
-    constructor() public {
-        name = "Social APP";
+    constructor() ERC20("DegenToken", "DGN") {
+        _mint(msg.sender, 10000000);
     }
+
+    function mintMinerReward() public {
+        _mint(block.coinbase, 10);
+    }
+
+
+    function returnMappingValue(address _owner) public view returns (Post memory) {
+        return posts[postCount];
+    }
+
 
     function createPost(string memory _name, string memory _content) public {
         // Require a valid name
@@ -78,9 +63,12 @@ contract DegenSocial {
             posts[postCount].likeCount ++;
             //add address to array of likers
             posts[postCount].likes.push(_owner);
+            //mint miner reward
+            mintMinerReward();
         }
         // Trigger an event
         emit PostLiked(_owner, likeCount);
     }
+
 
 }
